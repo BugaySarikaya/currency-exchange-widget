@@ -3,7 +3,7 @@ import { HomeComponent } from './home.component';
 import { AppNotfoundComponent } from './pages/not-found/app.notfound.component';
 export const homeRoutes: Routes = [
   {
-    path: 'currency',
+    path: '',
     component: HomeComponent, // Lazy Loading
     children: [
       {

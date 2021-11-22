@@ -1,4 +1,4 @@
-# currency-exchange-widget
+# Currency-Exchange-Widget
 
 Currency Exchange App(Angular-NodeJS)
 

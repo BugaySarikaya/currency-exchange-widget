@@ -26,7 +26,7 @@ const createServer = async () => {
 
   app.use('/api', routes());
 
-  app.use((err, req, res) => {
+  app.use(function (err, req, res, next) {
     if (err instanceof ValidationError) {
       return res.status(err.statusCode).json(err);
     }

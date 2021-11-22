@@ -1,0 +1,76 @@
+<div class="currency-form-layout">
+  <div class="card">
+    <p-progressBar *ngIf="loading" mode="indeterminate"></p-progressBar>
+    <form [formGroup]="currencyForm" #formRef="ngForm" (ngSubmit)="onSubmit()">
+      <div class="p-grid p-formgrid p-fluid">
+        <div class="p-col-12 p-md-12 p-lg-12 p-text-center">
+          <h2>Exchange UI Widget</h2>
+        </div>
+
+        <div class="p-col-12 p-md-12 p-lg-4">
+          <label for="baseCurrency">
+            Base Currency
+          </label>
+          <p-dropdown [options]="currencyTypeList" [showClear]="true" [filter]="true" filterBy="value,label"
+            [resetFilterOnHide]="true" [autoDisplayFirst]="false" formControlName="baseCurrency"
+            (onHide)="currencyForm.get('baseCurrency').markAsTouched()">
+          </p-dropdown>
+          <p-message severity="error" *ngIf="checkRequiredValidation('baseCurrency')"
+            text="Base Currency is required field!">
+          </p-message>
+        </div>
+
+        <div class="p-col-12 p-md-12 p-lg-4">
+          <label for="quoteCurrency">
+            Quote Currency
+          </label>
+          <p-dropdown [options]="currencyTypeList" [showClear]="true" [filter]="true" filterBy="value,label"
+            [resetFilterOnHide]="true" [autoDisplayFirst]="false" formControlName="quoteCurrency"
+            (onHide)="currencyForm.get('quoteCurrency').markAsTouched()">
+          </p-dropdown>
+          <p-message severity="error" *ngIf="checkRequiredValidation('quoteCurrency')"
+            text="Quote Currency is required field!">
+          </p-message>
+        </div>
+
+        <div class="p-col-12 p-md-12 p-lg-4">
+          <label for="baseAmount">Base Amount</label>
+          <p-inputNumber autocomplete="off" id="baseAmount" formControlName="baseAmount" [min]="1"
+            (onBlur)="currencyForm.get('baseAmount').markAsTouched()">
+          </p-inputNumber>
+          <p-message severity="error" *ngIf="checkRequiredValidation('baseAmount')"
+            text="Base Amount is required field!">
+          </p-message>
+        </div>
+      </div>
+
+      <div class="p-p-4">
+        <button pButton pRipple type="submit" label="Convert" class="p-d-block p-mx-auto p-button-lg"></button>
+      </div>
+
+
+      <div *ngIf="isResultExist()" class="p-grid p-formgrid p-fluid">
+        <div class="p-col-12 p-md-12 p-lg-12 p-text-center">
+          <h2>Exchange Result</h2>
+        </div>
+
+        <div class="p-grid p-col-12 result-container">
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <label for="conversionRate">
+              Conversion Rate
+            </label>
+            <input style="opacity: 1;" type="text" autocomplete="off" pInputText id="conversionRate"
+              formControlName="conversionRate" />
+          </div>
+
+          <div class="p-col-12 p-md-6 p-lg-6">
+            <label for="expectedAmount">Expected Amount</label>
+            <p-inputNumber autocomplete="off" id="expectedAmount" formControlName="expectedAmount"
+              [inputStyle]="{opacity: 1}" (onBlur)="currencyForm.get('expectedAmount').markAsTouched()">
+            </p-inputNumber>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

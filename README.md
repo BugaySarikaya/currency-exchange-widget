@@ -8,6 +8,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Run `npm install` to install dependencies for the project.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
@@ -35,5 +37,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 This project created with [Node-JS] version 14.17.0.
 
 # Start application
+
+Run `npm install` to install dependencies for the project.
 
 Run `npm start` to start the project.

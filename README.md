@@ -29,3 +29,7 @@ This project created with [Node-JS] version 14.17.0.
 Run `npm install` to install dependencies for the project.
 
 Run `npm start` to start the project.
+
+# Testing application
+
+Run `npm test` to run tests for the application.
